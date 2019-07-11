@@ -1,44 +1,33 @@
 class ReservationsController < ApplicationController
-     
+     before_action :authenticate!
 
-     def index
-        if session[:user_id].blank?
-          redirect_to "/login"
-        else
-          @user = User.find_by(id: session[:user_id])
-          @reservations = User.find_by(username: @user.username)
-        end
-      end
-
-      def create 
-
-        # if user not logged in and reservation doesnt save direct to login
-        # if user logs in direct them to view all their reservations
+    def index 
+         
+        @reservations = Reservation.all
         
-        if session[:user_id].blank?
-            redirect_to "/login"
-        else
-            @reservation = Reservation.new(reservation_params)
-        if @reservation.save
-            redirect_to reservations_path
-        else
-            render :new
-        end
-        end
-      end
+    end
 
-      def edit 
+    def show
         @reservation = Reservation.find(params[:id])
-        @user = User.find_by(id: session[:user_id:])
     end
 
     def new 
         @reservation = Reservation.new
     end
 
+    def create 
+        @reservation = Reservation.create(reservation_params)
+            redirect_to reservations_path
+
+        
+    end
+
+    def edit 
+        @reservation = Reservation.find(params[:id])
+    end
+
     def update
         @reservation = Reservation.find(params[:id])
-        @user = User.find_by(id: session[:user_id:])
        if @reservation.update(reservation_params)
         redirect_to reservation_path(@reservation)
        else 
@@ -55,25 +44,9 @@ class ReservationsController < ApplicationController
          end
     end
 
-    def new_review
-        @reservation = Reservation.find_by(id: params["id"])
-        @restaurant = Restaurant.find_by(id: @reservation.restaurant_id)
-        if session[:user_id].blank?
-          redirect_to "/login"
-        elsif @reservation.user_id != session[:user_id]
-          flash[:danger] = "This reservation does not belong to you!"
-          redirect_to "/reservations"
-        else
-          render 'new_review'
-        end
-
-        private
+    private
 
     def reservation_params
-<<<<<<< HEAD
         params.require(:reservation).permit(:time, :name, :restaurant, :review, :restaurant_id, :user_id)
-=======
-        params.require(:reservation).permit(:date, :time, :review, :user_id, :restaurant_id)
->>>>>>> f6b0be096dfb6e5b0ff36eb768efe06212992d09
     end
 end
