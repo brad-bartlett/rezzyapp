@@ -22,4 +22,5 @@
 <%# </ul> %>
 <h5><%= link_to("Create Reservation", new_reservation_path) %></h5>
 <h5><%= link_to("Find Restaurant", restaurants_path) %></h5>
-<%= link_to "Log out", logout_path, method: :delete %>
+<h5><%= link_to("Edit Your Account", reservation_path(@user)) %>
+<h5><%= link_to "Log out", logout_path, method: :delete %></h5>
