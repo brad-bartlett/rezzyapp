@@ -18,6 +18,7 @@ class ReservationsController < ApplicationController
     end
 
     def create 
+
         @user = User.find_by(id: params[:reservation][:user_id])
         @reservation = Reservation.new(reservation_params)
         if @reservation.save
@@ -25,6 +26,9 @@ class ReservationsController < ApplicationController
         else
             render :new
         end
+
+        
+
     end
 
     def edit 
