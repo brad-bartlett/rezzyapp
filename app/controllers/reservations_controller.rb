@@ -9,6 +9,8 @@ class ReservationsController < ApplicationController
 
     def show
         @reservation = Reservation.find(params[:id])
+        @users = User.all
+        @restaurants = Restaurant.all
     end
 
     def new 
@@ -16,9 +18,10 @@ class ReservationsController < ApplicationController
     end
 
     def create 
+        @user = User.find_by(id: params[:reservation][:user_id])
         @reservation = Reservation.new(reservation_params)
         if @reservation.save
-            redirect_to reservations_path
+            redirect_to user_path(@user)
         else
             render :new
         end

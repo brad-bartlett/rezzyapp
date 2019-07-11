@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @reservation = Reservation.all
+        @restaurants = Restaurant.all
     end
 
     def new 

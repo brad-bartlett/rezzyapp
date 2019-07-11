@@ -1,6 +1,14 @@
 <h1>Name: <%= @user.name %></h1>
 <h3>Username: <%= @user.username %></h3>
 
+<h4><%= link_to("Create Reservation", new_reservation_path) %></h4>
+<h4><%= link_to("Find Restaurant", restaurants_path) %></h4>
+<h4><%= link_to("Edit Your Account", reservation_path(@user)) %></h4>
+<h4><%= link_to "Log out", logout_path, method: :delete %></h4>
+<h3>Your Reservations</h3>
+<% @user.reservation.name%>
+
+
 <%# <% @user.friendships.each do |friend| %>
 <%# <%= friend.name %>
 <%# <% end %> 
@@ -20,7 +28,4 @@
     <%# (<%= link_to "remove", friendship, :method => :delete %>
 
 <%# </ul> %>
-<h5><%= link_to("Create Reservation", new_reservation_path) %></h5>
-<h5><%= link_to("Find Restaurant", restaurants_path) %></h5>
-<h5><%= link_to("Edit Your Account", reservation_path(@user)) %>
-<h5><%= link_to "Log out", logout_path, method: :delete %></h5>
+

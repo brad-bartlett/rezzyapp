@@ -8,7 +8,7 @@
 
 <%= form_for(@reservation) do |f| %>
 <%= f.label "Time" %><br>
-<%= f.datetime_select :time %><br>
+<%= f.select :time, ["5:00", "5:30", "6:00", "6:30", "7:00", "7:30", "8:00", "8:30", "9:00", "9:30"] %><br>
 <%= f.label "Name" %><br>
 <%= f.collection_select(:user_id, User.all, :id, :name)%><br>
 <%= f.label "Restaurant" %><br>
