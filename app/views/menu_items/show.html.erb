@@ -1,6 +1,10 @@
-<h1>Menu Item: <%=@menu_item.name%></h1>
-<h2>Price: <%= @menu_item.price%></h2>
+<h2>Menu Item: <%=@menu_item.name%></h2>
+<h3>Price: <%= @menu_item.price%></h3>
 <h3><%= image_tag @menu_item.img_url%></h3>
 
 
 <h4></h4><%= link_to("Back to Items", menu_items_path) %></h4>
+
+<h3><%= link_to("Back to Restaurant", restaurant_path) %></h3>
+<h3><%= link_to("Make a Reservation", new_reservation_path) %></h3>
+
