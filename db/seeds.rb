@@ -27,6 +27,7 @@ User.create(name: "Louise", username: "Smarty Hat" , password: "12345")
 User.create(name: "Linda", username: "Bobs Wife" , password: "12345")
 User.create(name: "Gene", username: "Big Baby" , password: "12345")
 
+
 Restaurant.create(name: "Krusty Krab", location: "Bikini Bottom", food_type: "American")
 Restaurant.create(name: "Chum Bucket", location: "Bikini Bottom", food_type: "Italian")
 Restaurant.create(name: "goofy goobers", location: "Bikini Bottom", food_type: "Ice cream")
@@ -42,6 +43,23 @@ Restaurant.create(name: "City Wok", location: "South Park", food_type: "Chinese"
 Restaurant.create(name: "Bobs Burgers", location: "Long Island", food_type: "American")
 Restaurant.create(name: "Falafel Waffle", location: "long island", food_type: "Breakfast")
 Restaurant.create(name: "Jimmy Pestos", location: "Long Island", food_type: "Italian")
+
+Restaurant.create(name: "Krusty Krab".downcase, location: "Bikini Bottom", food_type: "American")
+Restaurant.create(name: "Chum Bucket".downcase, location: "Bikini Bottom", food_type: "Italian")
+Restaurant.create(name: "goofy goobers".downcase, location: "Bikini Bottom", food_type: "Ice cream")
+
+Restaurant.create(name: "Krusty Burger".downcase, location: "Springfield", food_type: "American")
+Restaurant.create(name: "kwik-e-mart".downcase, location: "Springfield", food_type: "Ice cream")
+Restaurant.create(name: "moes".downcase, location: "Springfield", food_type: "Bar")
+
+Restaurant.create(name: "Bennys".downcase, location: "South Park", food_type: "Mexican")
+Restaurant.create(name: "Chefs Cafeteria".downcase, location: "South Park", food_type: "American")
+Restaurant.create(name: "City Wok".downcase, location: "South Park", food_type: "Chinese")
+
+Restaurant.create(name: "Bobs Burgers".downcase, location: "Long Island", food_type: "American")
+Restaurant.create(name: "Falafel Waffle".downcase, location: "long island", food_type: "Breakfast")
+Restaurant.create(name: "Jimmy Pestos".downcase, location: "Long Island", food_type: "Italian")
+
 
 MenuItem.create(name: "Krusty Kombo", price: 4, img_url:"https://i.gifer.com/fetch/w300-preview/42/42ed80f7581768d064ef329a41a9c76a.gif", restaurant_id: Restaurant.find_by(:name => "krusty krab").id)
 MenuItem.create(name: "Krabby Pattie", price: 2, img_url:"https://cdn.foodbeast.com/wp-content/uploads/2017/07/krabby-patty.jpg", restaurant_id: Restaurant.find_by(:name => "krusty krab").id)
