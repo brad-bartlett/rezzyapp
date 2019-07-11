@@ -7,8 +7,8 @@ post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'
 resources :restaurants
 resources :menu_items, only: [:index, :show]
-resources :users, except: [:index]
 resources :reservations
+resources :users, except: [:index]
 resources :friendships
 
 

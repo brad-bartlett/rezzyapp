@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-     before_action :authenticate!
+    
 
     def index 
         @reservations = Reservation.all
@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
     end
 
     def create 
-        @reservation = Reservation.new(reservation_params)
+        @reservation = Reservation.create(reservation_params)
         if @reservation.save
             redirect_to reservations_path
         else
@@ -47,6 +47,6 @@ class ReservationsController < ApplicationController
     private
 
     def reservation_params
-        params.require(:reservation).permit(:time, :name, :restaurant, :review, :restaurant_id)
+        params.require(:reservation).permit(:time, :name, :restaurant, :review, :restaurant_id, :user_id)
     end
 end

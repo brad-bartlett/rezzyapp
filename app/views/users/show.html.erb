@@ -1,5 +1,5 @@
 <h1>Name: <%= @user.name %></h1>
-<h3>Username: <%=h @user.username %></h3>
+<h3>Username: <%= @user.username %></h3>
 
 <%# <% @user.friendships.each do |friend| %>
 <%# <%= friend.name %>
@@ -19,7 +19,7 @@
     <%# <%=  friendship.friend.username %>
     <%# (<%= link_to "remove", friendship, :method => :delete %>
 
-</ul>
+<%# </ul> %>
 <h5><%= link_to("Create Reservation", new_reservation_path) %></h5>
 <h5><%= link_to("Find Restaurant", restaurants_path) %></h5>
 <%= link_to "Log out", logout_path, method: :delete %>
