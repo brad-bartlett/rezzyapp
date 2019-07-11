@@ -1,9 +1,5 @@
 class ReservationsController < ApplicationController
-<<<<<<< HEAD
-    
-=======
      
->>>>>>> f6b0be096dfb6e5b0ff36eb768efe06212992d09
 
      def index
         if session[:user_id].blank?
@@ -16,10 +12,6 @@ class ReservationsController < ApplicationController
 
       def create 
 
-<<<<<<< HEAD
-    def create 
-        @reservation = Reservation.create(reservation_params)
-=======
         # if user not logged in and reservation doesnt save direct to login
         # if user logs in direct them to view all their reservations
         
@@ -27,7 +19,6 @@ class ReservationsController < ApplicationController
             redirect_to "/login"
         else
             @reservation = Reservation.new(reservation_params)
->>>>>>> f6b0be096dfb6e5b0ff36eb768efe06212992d09
         if @reservation.save
             redirect_to reservations_path
         else
